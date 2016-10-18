@@ -13,42 +13,8 @@
     </h:head>
     
     <h:body>
-        <div class="principal">
-            <header class= "header2"> 
-        	<div class="wrapper">  
-                    <nav>
-                        <h:form>                            
-                            <p:commandButton value ="Registrarse" action="Registro"/>
-                        </h:form>
-                    </nav>
-                </div>
-            </header>
-        </div>
-        <div class="login">
-            <h:form>
-                <h1> Dogalize</h1>
-                <br/>
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel class="texto" for="username" value="Usuario" />
-                    <p:inputText id="username" value="#{Main.usuername}" required="true" label="username"/>
-
-                    <h:outputLabel class="texto" for="password" value="Contraseña" />
-                    <p:password id="password" value="#{Main.password}" required="true" label="password"/>
-
-                    <h:outputLabel class="texto" id="mensaje" for="password" value="#{Main.mensajeAcceso}" />
-                    <br/>
-                    <f:facet name="footer">
-                        <p:commandButton update="mensaje" value="Login" actionListener="#{Main.validaAcceso(event)}"/>
-    
-                    </f:facet>
-                </h:panelGrid>
-                    <br/>    
-                    <p:separator/>
-            </h:form>
-            <h:form>    
-                <h:commandLink  value="Enviar correo" action="Mail"/>                
-            </h:form>
-        </div>
+        
+        Hola Mundo
     </h:body>
 </html>
 
