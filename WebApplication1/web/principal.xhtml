@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <link rel="stylesheet" href="Style/Style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <div class="principal">
+            <header class= "header2"> 
+        	<div class="wrapper">  
+                    <nav>
+                        <h:form>
+                            <h:outputLabel class="texto" value= "Bienvenido #{Principal.username}" />
+                            
+                            <p:commandButton value ="Salir" actionListener ="#{Principal.cierraSesion}"/>
+                        </h:form>
+                    </nav>
+                </div>
+            </header>
+        </div>
+            <br/>
+            
+        <div class="formulario">
+            <h:form id="form"> 
+                <div class="Agregar">
+                    <h:panelGrid columns="6">
+                        <h:outputLabel value="Id persona"/>
+                        <h:inputText value="#{personaBean.persona.idPersona}"/>
+
+                        <h:outputLabel value="Nombre"/>
+                        <h:inputText value="#{personaBean.persona.nombre}"/>
+
+                        <h:outputLabel value="Edad"/>
+                        <h:inputText value="#{personaBean.persona.edad}"/>
+                    </h:panelGrid>
+            
+            <h:commandButton value="Agregar" actionListener="#{personaBean.agregarPersona()}"/>
+                 
+                </div>                  
+                <p:dataTable  value="#{personaBean.lista}" var="p">
+                    
+                    <p:column>
+                        <h:selectBooleanCheckbox value="#{p.selected}"/>
+                    </p:column>
+
+                    <p:column headerText="Id Persona">
+                        <h:outputText value="#{p.idPersona}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{p.nombre}" />
+                    </p:column>
+
+                    <p:column headerText="Edad">
+                        <h:outputText value="#{p.edad}" />
+                    </p:column>
+
+                </p:dataTable>                 
+                <br/>
+                
+                <p:commandButton value="Eliminar" actionListener="#{personaBean.eliminar()}"
+                                 update="form" icon="ui-icon-trash">
+                    <p:confirm message="¿Seguro de eliminar?" header="Aviso" icon="ui-icon-alert"/>
+                </p:commandButton>
+                
+                <p:confirmDialog global="true">
+                    <p:commandButton value="Si" type="button" icon="ui-icon-check"
+                                     styleClass="ui-confirmdialog-yes"/>
+                    <p:commandButton value="No" type="button" icon="ui-icon-close"
+                                     styleClass="ui-confirmdialog-no"/>
+                </p:confirmDialog>
+                
+
+                <p:dialog >
+                    <p:commandButton value="Si" type="button" icon="ui-icon-check"
+                                     styleClass="ui-confirmdialog-yes"/>
+                    <p:commandButton value="No" type="button" icon="ui-icon-close"
+                                     styleClass="ui-confirmdialog-no"/>
+                </p:dialog>
+            </h:form>
+            
+
+            
+        </div>
+    </h:body>
+</html>

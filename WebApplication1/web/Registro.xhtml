@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <head>
+        <title>TODO supply a title</title>
+        <link rel="stylesheet" href="Style/Style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+        <div class="principal">
+            <header class= "header2"> 
+        	<div class="wrapper">  
+                    <nav>
+                        <h:form>                            
+                            <p:commandButton value ="Salir" action="index"/>
+                        </h:form>
+                    </nav>
+                </div>
+            </header>
+        </div>
+        <div class="login">
+            <h:form>            
+                <h1> Registrarte</h1>
+                <br/>
+                <p:separator/>
+                
+                <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="Nombre"/>
+                <p:inputText value="#{registro.user.nombre}"/>
+
+                <p:outputLabel value="Apellidos"/>
+                <p:inputText value="#{registro.user.apellido}"/>
+                
+                <p:outputLabel value="Usuario"/>
+                <p:inputText value="#{registro.user.usuario}"/>
+
+                <p:outputLabel value="Correo"/>
+                <p:inputText value="#{registro.user.correo}"/>
+                
+                <p:outputLabel for="password" value="Contraseña"/>
+                <p:password id="password" value="#{registro.user.contrasena}" required="true" label="password"/>
+                
+                <p:commandButton value="Registarse" actionListener="#{registro.registrar}" />  
+                
+                </h:panelGrid>
+                
+            </h:form>     
+        </div>
+    </h:body>
+</html>
